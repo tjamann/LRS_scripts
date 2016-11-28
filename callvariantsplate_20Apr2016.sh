@@ -183,11 +183,3 @@ sed '/*/d' trythis.vcf > trythissed.vcf
 /home/tjamann/bin/tassel-5-standalone/run_pipeline.pl -SortGenotypeFilePlugin -inputFile trythissed.vcf -outputFile sortedtassel.vcf -fileType VCF
 rm trythis.vcf
 
-echo "outputting info about variants after filtering"
-$GATK \
--R $REFERENCE \
--T VariantEval \
--L $INTERVALS \
--o GATK.eval.gatkreport \
---eval: sortedtassel.vcf \
--D $KNOWN
